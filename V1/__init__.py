@@ -5,7 +5,7 @@ from V1.configurations.config import app_config
 api = Api(
     version='1.0',
     title='Business Review API',
-    description='A Simple Maintenance API',
+    description='A Simple Business Review API',
     prefix='/api/v1')
 
 
