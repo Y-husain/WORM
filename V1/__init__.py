@@ -4,8 +4,8 @@ from V1.configurations.config import app_config
 
 api = Api(
     version='1.0',
-    title='Maintenance Tracker',
-    description='Api with endpoints',
+    title='Business Review API',
+    description='A Simple Maintenance API',
     prefix='/api/v1')
 
 
