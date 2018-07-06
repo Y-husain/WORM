@@ -36,8 +36,3 @@ class DatabaseConnection:
                 (firstname, lastname, email, password, secret))
         except (Exception, psycopg2.IntegrityError) as error:
             pp.pprint(error)
-
-
-data_connection = DatabaseConnection()
-data_connection.insert_user("yahya", "hussein", "yahya@gmail.com", "12345",
-                            "MyMum")
