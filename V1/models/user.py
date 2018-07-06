@@ -11,19 +11,15 @@ database_connection = DatabaseConnection()
 class User:
     """User class model"""
 
-    def __init__(self,
-                 firstname,
-                 lastname,
-                 email,
-                 password,
-                 secret,
-                 admin=False):
+    def __init__(self, firstname, lastname, email, password, secret):
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
         self.password_hash = Bcrypt().generate_password_hash(password).decode()
         self.secret = secret
-        self.admin = admin
+
+    def save(self):
+        """save user to database"""
         database_connection.insert_user(self.firstname, self.lastname,
                                         self.email, self.password_hash,
                                         self.secret)

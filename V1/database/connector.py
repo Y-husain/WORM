@@ -1,5 +1,6 @@
 import pprint as pp
 import psycopg2
+from psycopg2.extras import RealDictCursor
 
 
 class DatabaseConnection:
@@ -36,3 +37,15 @@ class DatabaseConnection:
                 (firstname, lastname, email, password, secret))
         except (Exception, psycopg2.IntegrityError) as error:
             pp.pprint(error)
+
+    def query_email(self):
+        try:
+            self.cursor.execute("""SELECT email FROM users""")
+            existing_emails = self.cursor.fetchall()
+            return existing_emails
+        except (Exception, psycopg2.DatabaseError) as e:
+            pp.pprint(e)
+
+
+data = DatabaseConnection()
+data.query_email()
